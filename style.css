@@ -16,6 +16,7 @@ body {
 }
 
 .nav {
+    position: relative;
     width: 100%;
     min-height: 60px;
     background-color: var(--white);
@@ -52,8 +53,18 @@ body {
     opacity: .7;
 }
 
+.nav li a:hover,
 .nav li a.active {
     opacity: 1;
+}
+
+.nav .line {
+    position: absolute;
+    bottom: 0;
+    height: 6px;
+    border-radius: 8px;
+    background-image: linear-gradient(to left , #12c2e9, #c471ed, #f64f59);
+    transition: .3s;
 }
 
 .nav .input-search {
