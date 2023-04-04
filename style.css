@@ -193,6 +193,7 @@ body {
     width: 100%;
 }
 
+
 .btn-slide {
     position: absolute;
     bottom: 4px;
@@ -209,6 +210,10 @@ body {
     border: 2px solid #ccc;
 }
 
+.btn-slide .btn.active {
+    background-color: #ccc!important;
+} 
+
 .btn-slide .btn:not(last-child) {
     margin-left: 12px;
 }
@@ -216,6 +221,7 @@ body {
 .btn-slide .btn:hover {
     background-color: var(--light);
 }
+
 
 
 

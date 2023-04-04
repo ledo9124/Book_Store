@@ -66,7 +66,7 @@
             </div>
 
             <div class="btn-slide">
-                <div class="btn"></div>
+                <div class="btn active"></div>
                 <div class="btn"></div>
                 <div class="btn"></div>
                 <div class="btn"></div>
@@ -79,9 +79,39 @@
         </div>
     </div>
     <script>
-        const slide = document.querySelectorAll('.slide');
+        const slides = document.querySelectorAll('.slide');
         const btnSlide = document.querySelectorAll('.btn-slide .btn');
-        
+        let curentIndex = 0;
+        let marginLeftSlide = 0; 
+        btnSlide.forEach((btn , index) => {
+            btn.onclick = function() {
+                curentIndex = index;
+                slides[0].style.marginLeft = marginLeftSlide + '%';
+                if (marginLeftSlide == 0){
+                    marginLeftSlide = 20;
+                }
+                marginLeftSlide = 20 * index;
+                document.querySelector('.btn.active').classList.remove('active');
+                btnSlide[curentIndex].classList.add('active');
+                
+                slides[0].style.marginLeft = -marginLeftSlide + '%';
+                
+            }
+        })
+        setInterval(() => {
+            curentIndex++;
+            if ( curentIndex > slides.length - 1) {
+                curentIndex = 0;
+            }
+            document.querySelector('.btn.active').classList.remove('active');
+            btnSlide[curentIndex].classList.add('active');
+            slides[0].style.marginLeft = marginLeftSlide + '%';
+            marginLeftSlide += 20;
+            if (marginLeftSlide > 60) {
+                marginLeftSlide = 0;
+            }
+            slides[0].style.marginLeft = -marginLeftSlide + '%';
+        }, 5000)
 
     </script>
 </body>
