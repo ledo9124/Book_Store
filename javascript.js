@@ -8,11 +8,150 @@ const btnSlide = document.querySelector('.btn-slide');
 const bookStore = {
     listBooks: [
         {
-            name: '',
-            image: '',
-            description: '',
-            price: ''
-        }
+            idCategory : 1,
+            name: 'Nobita-Vũ trụ phiêu lưu kí',
+            image: './asset/img/doramon1.jpg',
+            price: 99
+        },
+        {
+            idCategory : 1,
+            name: 'Nobita và chuyến tàu tốc hành ngân hà',
+            image: './asset/img/doramon2.jpg',
+            price: 99
+        },
+        {
+            idCategory : 1,
+            name: 'Năm 2112 - Doramon ra đời',
+            image: './asset/img/doramon3.jpg',
+            price: 99
+        },
+        {
+            idCategory : 1,
+            name: 'Nobita và truyền thuyết vua mặt trời',
+            image: './asset/img/doramon4.jpg',
+            price: 99
+        },
+        {
+            idCategory : 1,
+            name: 'Chú khủng long của Nobita',
+            image: './asset/img/doramon5.jpg',
+            price: 99
+        },
+        {
+            idCategory : 1,
+            name: 'Nobita và hành tinh muông thú',
+            image: './asset/img/doramon6.jpg',
+            price: 99
+        },
+        {
+            idCategory : 1,
+            name: 'Đội quân Doramon',
+            image: './asset/img/doramon7.jpg',
+            price: 99
+        },
+        {
+            idCategory : 1,
+            name: 'Bí mật mê cung Bliki',
+            image: './asset/img/doramon8.jpg',
+            price: 99
+        },
+        {
+            idCategory : 2,
+            name: 'Sọ Dừa',
+            image: './asset/img/sach1.jpg',
+            price: 99
+        },
+        {
+            idCategory : 2,
+            name: 'Thánh Gióng',
+            image: './asset/img/sach2.jpg',
+            price: 99
+        },
+        {
+            idCategory : 2,
+            name: 'Cây Khế',
+            image: './asset/img/sach3.jpg',
+            price: 99
+        },
+        {
+            idCategory : 2,
+            name: 'Chú Bé Thông Minh',
+            image: './asset/img/sach4.jpg',
+            price: 99
+        },
+        {
+            idCategory : 2,
+            name: 'Lạc Long Quân và Âu Cơ',
+            image: './asset/img/sach5.jpg',
+            price: 99
+        },
+        {
+            idCategory : 2,
+            name: 'Tấm Cám',
+            image: './asset/img/sach6.jpg',
+            price: 99
+        },
+        {
+            idCategory : 2,
+            name: 'Mỵ Châu Trọng Thuỷ',
+            image: './asset/img/sach7.jpg',
+            price: 99
+        },
+        {
+            idCategory : 2,
+            name: 'Thạch Sanh',
+            image: './asset/img/sach8.jpg',
+            price: 99
+        },
+        {
+            idCategory : 3,
+            name: 'Tàn Khốc tập 1',
+            image: './asset/img/tgdq1.jpg',
+            price: 99
+        },
+        {
+            idCategory : 3,
+            name: 'Ngươi là... tập 2',
+            image: './asset/img/tgdq2.jpg',
+            price: 99
+        },
+        {
+            idCategory : 3,
+            name: 'Khích lệ bản thân tập 3',
+            image: './asset/img/tgdq3.jpg',
+            price: 99
+        },
+        {
+            idCategory : 3,
+            name: 'Lưỡi gươm mạnh mẽ tập 4',
+            image: './asset/img/tgdq4.jpg',
+            price: 99
+        },
+        {
+            idCategory : 3,
+            name: 'Xuống địa ngục tập 5',
+            image: './asset/img/tgdq5.jpg',
+            price: 99
+        },
+        {
+            idCategory : 3,
+            name: 'Phán xét của các trụ cột tập 6',
+            image: './asset/img/tgdq6.jpg',
+            price: 99
+        },
+        {
+            idCategory : 3,
+            name: 'Giao chiến nơi chật hẹp tập 7',
+            image: './asset/img/tgdq7.jpg',
+            price: 99
+        },
+        {
+            idCategory : 3,
+            name: 'Sức mạnh của Thượng Huyền tập 8',
+            image: './asset/img/tgdq8.jpg',
+            price: 99
+        },
+        
     ],
 
     listBanners : [

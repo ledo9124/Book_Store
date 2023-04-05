@@ -145,7 +145,7 @@ body {
     position: relative;
     width: 80%;
     height: 300px;
-    margin: 16px auto 0;
+    margin: 16px auto;
     display: flex;
     background-color: var(--white);
     border-radius: 16px;
@@ -240,8 +240,109 @@ body {
     background-color: var(--light);
 }
 
-
-
-
 /*End slideshow */
+
+/* list Produces */
+
+.list-products {
+    padding: 20px 0;
+}
+
+.products {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.products .item {
+    padding: 20px 20px;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.products .item img {
+    padding: 10px 40px 20px;
+    width: 220px;
+    height: 240px;
+    object-fit: cover;
+    object-position: center;
+} 
+
+.item .title-item {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.item .price {
+    color: #f51919;
+    font-weight: bold;
+    padding: 8px 0;
+}
+
+.item .btn-add {
+    height: 36px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: #317ff5;
+    line-height: 36px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: .5s;
+}
+
+.item .btn-add:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 4px #317ff5;
+}
+
+.box-product {
+    position: relative;
+}
+
+.box-product .title-product {
+    padding: 12px 100px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Lobster', cursive;
+}
+
+.box-product .next,
+.box-product .pver {
+    position: absolute;
+    top: 48%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 5px 10px #ccc;
+}
+
+.box-product .pver {
+    left: 30px;
+}
+
+.box-product .next {
+    right: 30px;
+}
+
+.box-product .next:hover,
+.box-product .pver:hover {
+    background-color: var(--light);
+}
+
+
+
+/*End list Produces */
 
