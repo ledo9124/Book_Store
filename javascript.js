@@ -4,154 +4,179 @@ const line = document.querySelector('.line');
 const infoSlide = document.querySelector('.box-text');
 const slider = document.querySelector('.slider');
 const btnSlide = document.querySelector('.btn-slide');
+const productsElement = document.querySelector('.box-product');
 
 const bookStore = {
+    
     listBooks: [
+        book1 = [
+            {
+                id : 1,
+                name: 'Nobita-Vũ trụ phiêu lưu kí',
+                image: './asset/img/doramon1.jpg',
+                price: 99
+            },
+            {
+                id : 1,
+                name: 'Nobita và chuyến tàu tốc hành ngân hà',
+                image: './asset/img/doramon2.jpg',
+                price: 99
+            },
+            {
+                id : 1,
+                name: 'Năm 2112 - Doramon ra đời',
+                image: './asset/img/doramon3.jpg',
+                price: 99
+            },
+            {
+                id : 1,
+                name: 'Nobita và truyền thuyết vua mặt trời',
+                image: './asset/img/doramon4.jpg',
+                price: 99
+            },
+            {
+                id : 1,
+                name: 'Chú khủng long của Nobita',
+                image: './asset/img/doramon5.jpg',
+                price: 99
+            },
+            {
+                id : 1,
+                name: 'Nobita và hành tinh muông thú',
+                image: './asset/img/doramon6.jpg',
+                price: 99
+            },
+            {
+                id : 1,
+                name: 'Đội quân Doramon',
+                image: './asset/img/doramon7.jpg',
+                price: 99
+            },
+            {
+                id : 1,
+                name: 'Bí mật mê cung Bliki',
+                image: './asset/img/doramon8.jpg',
+                price: 99
+            },
+        ],
+
+        book2 = [
+            {
+                id : 2,
+                name: 'Sọ Dừa',
+                image: './asset/img/sach1.jpg',
+                price: 99
+            },
+            {
+                id : 2,
+                name: 'Thánh Gióng',
+                image: './asset/img/sach2.jpg',
+                price: 99
+            },
+            {
+                id : 2,
+                name: 'Cây Khế',
+                image: './asset/img/sach3.jpg',
+                price: 99
+            },
+            {
+                id : 2,
+                name: 'Chú Bé Thông Minh',
+                image: './asset/img/sach4.jpg',
+                price: 99
+            },
+            {
+                id : 2,
+                name: 'Lạc Long Quân và Âu Cơ',
+                image: './asset/img/sach5.jpg',
+                price: 99
+            },
+            {
+                id : 2,
+                name: 'Tấm Cám',
+                image: './asset/img/sach6.jpg',
+                price: 99
+            },
+            {
+                id : 2,
+                name: 'Mỵ Châu Trọng Thuỷ',
+                image: './asset/img/sach7.jpg',
+                price: 99
+            },
+            {
+                id : 2,
+                name: 'Thạch Sanh',
+                image: './asset/img/sach8.jpg',
+                price: 99
+            },
+        ],
+
+        book3 = [
+
+            {
+                id : 3,
+                name: 'Tàn Khốc tập 1',
+                image: './asset/img/tgdq1.jpg',
+                price: 99
+            },
+            {
+                id : 3,
+                name: 'Ngươi là... tập 2',
+                image: './asset/img/tgdq2.jpg',
+                price: 99
+            },
+            {
+                id : 3,
+                name: 'Khích lệ bản thân tập 3',
+                image: './asset/img/tgdq3.jpg',
+                price: 99
+            },
+            {
+                id : 3,
+                name: 'Lưỡi gươm mạnh mẽ tập 4',
+                image: './asset/img/tgdq4.jpg',
+                price: 99
+            },
+            {
+                id : 3,
+                name: 'Xuống địa ngục tập 5',
+                image: './asset/img/tgdq5.jpg',
+                price: 99
+            },
+            {
+                id : 3,
+                name: 'Phán xét của các trụ cột tập 6',
+                image: './asset/img/tgdq6.jpg',
+                price: 99
+            },
+            {
+                id : 3,
+                name: 'Giao chiến nơi chật hẹp tập 7',
+                image: './asset/img/tgdq7.jpg',
+                price: 99
+            },
+            {
+                id : 3,
+                name: 'Sức mạnh của Thượng Huyền tập 8',
+                image: './asset/img/tgdq8.jpg',
+                price: 99
+            }
+        ],
+    ],
+
+    idName: [
         {
-            idCategory : 1,
-            name: 'Nobita-Vũ trụ phiêu lưu kí',
-            image: './asset/img/doramon1.jpg',
-            price: 99
+            id: 1,
+            name : 'Full Bộ Truyện Doramon'
         },
         {
-            idCategory : 1,
-            name: 'Nobita và chuyến tàu tốc hành ngân hà',
-            image: './asset/img/doramon2.jpg',
-            price: 99
+            id: 2,
+            name : 'Truyện Cổ Tích Việt Nam'
         },
         {
-            idCategory : 1,
-            name: 'Năm 2112 - Doramon ra đời',
-            image: './asset/img/doramon3.jpg',
-            price: 99
+            id: 3,
+            name : 'Thanh Gươm Diệt Quỷ - Kimetsu No Yaiba'
         },
-        {
-            idCategory : 1,
-            name: 'Nobita và truyền thuyết vua mặt trời',
-            image: './asset/img/doramon4.jpg',
-            price: 99
-        },
-        {
-            idCategory : 1,
-            name: 'Chú khủng long của Nobita',
-            image: './asset/img/doramon5.jpg',
-            price: 99
-        },
-        {
-            idCategory : 1,
-            name: 'Nobita và hành tinh muông thú',
-            image: './asset/img/doramon6.jpg',
-            price: 99
-        },
-        {
-            idCategory : 1,
-            name: 'Đội quân Doramon',
-            image: './asset/img/doramon7.jpg',
-            price: 99
-        },
-        {
-            idCategory : 1,
-            name: 'Bí mật mê cung Bliki',
-            image: './asset/img/doramon8.jpg',
-            price: 99
-        },
-        {
-            idCategory : 2,
-            name: 'Sọ Dừa',
-            image: './asset/img/sach1.jpg',
-            price: 99
-        },
-        {
-            idCategory : 2,
-            name: 'Thánh Gióng',
-            image: './asset/img/sach2.jpg',
-            price: 99
-        },
-        {
-            idCategory : 2,
-            name: 'Cây Khế',
-            image: './asset/img/sach3.jpg',
-            price: 99
-        },
-        {
-            idCategory : 2,
-            name: 'Chú Bé Thông Minh',
-            image: './asset/img/sach4.jpg',
-            price: 99
-        },
-        {
-            idCategory : 2,
-            name: 'Lạc Long Quân và Âu Cơ',
-            image: './asset/img/sach5.jpg',
-            price: 99
-        },
-        {
-            idCategory : 2,
-            name: 'Tấm Cám',
-            image: './asset/img/sach6.jpg',
-            price: 99
-        },
-        {
-            idCategory : 2,
-            name: 'Mỵ Châu Trọng Thuỷ',
-            image: './asset/img/sach7.jpg',
-            price: 99
-        },
-        {
-            idCategory : 2,
-            name: 'Thạch Sanh',
-            image: './asset/img/sach8.jpg',
-            price: 99
-        },
-        {
-            idCategory : 3,
-            name: 'Tàn Khốc tập 1',
-            image: './asset/img/tgdq1.jpg',
-            price: 99
-        },
-        {
-            idCategory : 3,
-            name: 'Ngươi là... tập 2',
-            image: './asset/img/tgdq2.jpg',
-            price: 99
-        },
-        {
-            idCategory : 3,
-            name: 'Khích lệ bản thân tập 3',
-            image: './asset/img/tgdq3.jpg',
-            price: 99
-        },
-        {
-            idCategory : 3,
-            name: 'Lưỡi gươm mạnh mẽ tập 4',
-            image: './asset/img/tgdq4.jpg',
-            price: 99
-        },
-        {
-            idCategory : 3,
-            name: 'Xuống địa ngục tập 5',
-            image: './asset/img/tgdq5.jpg',
-            price: 99
-        },
-        {
-            idCategory : 3,
-            name: 'Phán xét của các trụ cột tập 6',
-            image: './asset/img/tgdq6.jpg',
-            price: 99
-        },
-        {
-            idCategory : 3,
-            name: 'Giao chiến nơi chật hẹp tập 7',
-            image: './asset/img/tgdq7.jpg',
-            price: 99
-        },
-        {
-            idCategory : 3,
-            name: 'Sức mạnh của Thượng Huyền tập 8',
-            image: './asset/img/tgdq8.jpg',
-            price: 99
-        },
-        
     ],
 
     listBanners : [
@@ -176,6 +201,7 @@ const bookStore = {
     marginLeftSlide : 0,
 
     render : function (){
+        //Reder Banner
         const html = this.listBanners.map(banner => {
             return `<div class="slide">
             <img src="${banner.image}">
@@ -205,6 +231,38 @@ const bookStore = {
                 </div>`;
         }
         infoSlide.innerHTML = info;
+
+        //reder products
+        let htmlPoxProduct = '';
+        this.listBooks.forEach(book => {      
+            let htmlBook = book.map(sach => {
+                return `
+                <div class="item id${sach.id}">
+                <img src="${sach.image}">
+                <div class="title-item">${sach.name}</div>
+                <div class="price">${sach.price}K</div>
+                <div class="btn-add">Add to cart</div>
+                </div>
+                `;
+            });
+            let checkName = this.idName.find(name => {
+                return name.id == book[0].id;
+            });
+            let htmlProducts = `
+                <div class="title-product">${checkName.name}</div>
+                <div class="products">
+                    <div class="list-item">
+                        ${htmlBook.join('\n')}
+                    </div>    
+                    <div class="btn-products">
+                        <div class="pver"><i class="fa-solid fa-arrow-left"></i></div>
+                        <div class="next"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </div>`;
+                htmlPoxProduct += htmlProducts;
+        });
+        productsElement.innerHTML = htmlPoxProduct;
+
     },
 
     loadSlide : function(){
@@ -236,7 +294,7 @@ const bookStore = {
             }
             document.querySelector('.btn.active').classList.remove('active');
             btnSlide[_This.currentIndex].classList.add('active');
-            slides[0].style.marginLeft = _This.marginLeftSlide + '%';
+            // slides[0].style.marginLeft = _This.marginLeftSlide + '%';
             _This.marginLeftSlide += 20;
             if (_This.marginLeftSlide > ((_This.listBanners.length-1)*20)) {
                 _This.marginLeftSlide = 0;
@@ -267,6 +325,29 @@ const bookStore = {
                 _This.lineUl(index);
             };
         });
+
+        //Xử lý tiến và lùi products
+        const btnPvers = document.querySelectorAll('.pver');
+        const btnNexts = document.querySelectorAll('.next');
+        const listProducts = document.querySelectorAll('.list-item');
+
+        btnPvers.forEach((btn , index) => {
+            btn.onclick = function () {
+                let listItems = document.querySelectorAll(`.id${index + 1}`);
+                listProducts[index].prepend(listItems[listItems.length - 1]); 
+            }
+        });
+        
+        
+        btnNexts.forEach((btn , index) => {
+            btn.onclick = function () {
+                let listItems = document.querySelectorAll(`.id${index + 1}`);
+                listProducts[index].appendChild(listItems[0]);
+            }
+        });
+
+
+
 
     },
 

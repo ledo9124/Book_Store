@@ -52,74 +52,10 @@
 
         <div class="list-products">
             <div class="box-product">
-                <div class="title-product">Doramon</div>
-                <div class="pver"><i class="fa-solid fa-arrow-left"></i></div>
-                <div class="next"><i class="fa-solid fa-arrow-right"></i></div>
-                <div class="products">
-                    <div class="item">
-                         <img src="./asset/img/doramon1.jpg">
-                         <div class="title-item">Doramon</div>
-                         <div class="price">199K</div>
-                        <div class="btn-add">Add to cart</div>
-                    </div>
-                    <div class="item">
-                        <img src="./asset/img/doramon2.jpg">
-                        <div class="title-item">Doramon</div>
-                        <div class="price">199K</div>
-                        <div class="btn-add">Add to cart</div>
-                   </div>
-                   <div class="item">
-                        <img src="./asset/img/doramon3.jpg">
-                        <div class="title-item">Doramon</div>
-                        <div class="price">199K</div>
-                        <div class="btn-add">Add to cart</div>
-                    </div>
-                    <div class="item">
-                        <img src="./asset/img/doramon4.jpg">
-                        <div class="title-item">Doramon</div>
-                        <div class="price">199K</div>
-                        <div class="btn-add">Add to cart</div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
-    <!-- <script>
-        const slides = document.querySelectorAll('.slide');
-        const btnSlide = document.querySelectorAll('.btn-slide .btn');
-        let curentIndex = 0;
-        let marginLeftSlide = 0; 
-        btnSlide.forEach((btn , index) => {
-            btn.onclick = function() {
-                curentIndex = index;
-                slides[0].style.marginLeft = marginLeftSlide + '%';
-                if (marginLeftSlide == 0){
-                    marginLeftSlide = 20;
-                }
-                marginLeftSlide = 20 * index;
-                document.querySelector('.btn.active').classList.remove('active');
-                btnSlide[curentIndex].classList.add('active');
-                
-                slides[0].style.marginLeft = -marginLeftSlide + '%';
-                
-            }
-        })
-        setInterval(() => {
-            curentIndex++;
-            if ( curentIndex > slides.length - 1) {
-                curentIndex = 0;
-            }
-            document.querySelector('.btn.active').classList.remove('active');
-            btnSlide[curentIndex].classList.add('active');
-            slides[0].style.marginLeft = marginLeftSlide + '%';
-            marginLeftSlide += 20;
-            if (marginLeftSlide > 60) {
-                marginLeftSlide = 0;
-            }
-            slides[0].style.marginLeft = -marginLeftSlide + '%';
-        }, 5000)
-
-    </script> -->
+    
 </body>
 <script src="./javascript.js"></script>
 </html>

@@ -249,34 +249,78 @@ body {
 }
 
 .products {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
+    position: relative;
 }
 
-.products .item {
-    padding: 20px 20px;
+.list-item {
+    position: relative;
+    width: 90%;
+    height: 420px;
+    margin: 0 auto;
+    display: flex;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.list-item .item {
+    position: absolute;
+    width: 260px;
+    height: 380px;
+    padding: 16px;
     box-shadow: 0 0 10px #ccc;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: .5s;
 }
 
-.products .item img {
+.list-item .item:first-child {
+    left: calc(8% - 296px);
+    opacity: 0;
+}
+
+.list-item .item:nth-child(2) {
+    left: 8%;
+}
+
+.list-item .item:nth-child(3) {
+    left: calc(8% + 296px);
+}
+
+.list-item .item:nth-child(4) {
+    left: calc(8% + 592px);
+}
+
+.list-item .item:nth-child(5) {
+    left: calc(8% + 888px);
+}
+
+.list-item .item:nth-child(n+6) {
+    left: calc(8% + 1148px);
+    opacity: 0;
+}
+
+.list-item .item:first-child .btn-add,
+.list-item .item:nth-child(n+5) .btn-add {
+    cursor:default;
+}
+
+
+
+.list-item .item img {
     padding: 10px 40px 20px;
-    width: 220px;
+    width: 228px;
     height: 240px;
     object-fit: cover;
     object-position: center;
-} 
+}
 
 .item .title-item {
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
 }
 
 .item .price {
@@ -303,10 +347,6 @@ body {
     box-shadow: 0 4px 4px #317ff5;
 }
 
-.box-product {
-    position: relative;
-}
-
 .box-product .title-product {
     padding: 12px 100px;
     font-size: 40px;
@@ -314,10 +354,17 @@ body {
     font-family: 'Lobster', cursive;
 }
 
-.box-product .next,
-.box-product .pver {
+.btn-products {
     position: absolute;
     top: 48%;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 60px;
+}
+
+.next,
+.pver {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -327,14 +374,7 @@ body {
     align-items: center;
     cursor: pointer;
     box-shadow: 0 5px 10px #ccc;
-}
-
-.box-product .pver {
-    left: 30px;
-}
-
-.box-product .next {
-    right: 30px;
+    z-index: 1;
 }
 
 .box-product .next:hover,
