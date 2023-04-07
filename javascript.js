@@ -272,7 +272,7 @@ const bookStore = {
         const info = document.querySelectorAll('.info');
 
         btnSlide.forEach((btn , index) => {
-            btn.onclick = function() {               
+            btn.onclick = function() {
                 info[_This.currentIndex].classList.remove('active')
                 _This.currentIndex = index;
                 slides[0].style.marginLeft = _This.marginLeftSlide + '%';
@@ -294,7 +294,6 @@ const bookStore = {
             }
             document.querySelector('.btn.active').classList.remove('active');
             btnSlide[_This.currentIndex].classList.add('active');
-            // slides[0].style.marginLeft = _This.marginLeftSlide + '%';
             _This.marginLeftSlide += 20;
             if (_This.marginLeftSlide > ((_This.listBanners.length-1)*20)) {
                 _This.marginLeftSlide = 0;
@@ -345,10 +344,6 @@ const bookStore = {
                 listProducts[index].appendChild(listItems[0]);
             }
         });
-
-
-
-
     },
 
     start : function(){
