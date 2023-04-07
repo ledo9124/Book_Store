@@ -198,7 +198,6 @@ const bookStore = {
     ],
 
     currentIndex : 0,
-    marginLeftSlide : 0,
 
     render : function (){
         //Reder Banner
@@ -262,7 +261,6 @@ const bookStore = {
                 htmlPoxProduct += htmlProducts;
         });
         productsElement.innerHTML = htmlPoxProduct;
-
     },
 
     loadSlide : function(){
@@ -271,46 +269,69 @@ const bookStore = {
         const btnSlide = document.querySelectorAll('.btn-slide .btn');
         const info = document.querySelectorAll('.info');
 
-        btnSlide.forEach((btn , index) => {
-            btn.onclick = function() {
-                info[_This.currentIndex].classList.remove('active')
-                _This.currentIndex = index;
-                slides[0].style.marginLeft = _This.marginLeftSlide + '%';
-                if (_This.marginLeftSlide == 0){
-                    _This.marginLeftSlide = 20;
-                }
-                _This.marginLeftSlide = 20 * index;
-                document.querySelector('.btn.active').classList.remove('active');
-                btnSlide[_This.currentIndex].classList.add('active');
-                slides[0].style.marginLeft = -_This.marginLeftSlide + '%';
-                info[_This.currentIndex].classList.add('active');
-            }
-        })
-        setInterval(() => {
-            info[_This.currentIndex].classList.remove('active')
-            _This.currentIndex++;
-            if ( _This.currentIndex > slides.length - 1) {
-                _This.currentIndex = 0;
-            }
-            document.querySelector('.btn.active').classList.remove('active');
-            btnSlide[_This.currentIndex].classList.add('active');
-            _This.marginLeftSlide += 20;
-            if (_This.marginLeftSlide > ((_This.listBanners.length-1)*20)) {
-                _This.marginLeftSlide = 0;
-            }
-            slides[0].style.marginLeft = -_This.marginLeftSlide + '%';
-            info[_This.currentIndex].classList.add('active');
-        }, 5000)
+        // btnSlide.forEach((btn , index) => {
+        //     btn.onclick = function() {
+        //         info[_This.currentIndex].classList.remove('active')
+        //         _This.currentIndex = index;
+        //         slides[0].style.marginLeft = _This.marginLeftSlide + '%';
+        //         if (_This.marginLeftSlide == 0){
+        //             _This.marginLeftSlide = 20;
+        //         }
+        //         _This.marginLeftSlide = 20 * index;
+        //         document.querySelector('.btn.active').classList.remove('active');
+        //         btnSlide[_This.currentIndex].classList.add('active');
+        //         slides[0].style.marginLeft = -_This.marginLeftSlide + '%';
+        //         info[_This.currentIndex].classList.add('active');
+        //     }
+        // })
+        // setInterval(() => {
+        //     info[_This.currentIndex].classList.remove('active')
+        //     _This.currentIndex++;
+        //     if ( _This.currentIndex > slides.length - 1) {
+        //         _This.currentIndex = 0;
+        //     }
+        //     document.querySelector('.btn.active').classList.remove('active');
+        //     btnSlide[_This.currentIndex].classList.add('active');
+        //     _This.marginLeftSlide += 20;
+        //     if (_This.marginLeftSlide > ((_This.listBanners.length-1)*20)) {
+        //         _This.marginLeftSlide = 0;
+        //     }
+        //     slides[0].style.marginLeft = -_This.marginLeftSlide + '%';
+        //     info[_This.currentIndex].classList.add('active');
+        // }, 5000)
+
+
+
     },
 
-    lineUl : function (index) {
-        line.style.width = ulElement[index].offsetWidth + 'px';
-        line.style.left = ulElement[index].offsetLeft + 'px';
+    toNext : function(listItems , list , index) {
+        if(index == 'undefined'){
+            list.appendChild(listItems[0]);
+        }else {
+            list[index].appendChild(listItems[0]);
+        }
+    },
+    
+    toPver : function(listItems , list , index = 0) {
+
+        if(index == 'undefined'){
+            list.prepend(listItems[listItems.length - 1]);
+        }else {
+            list[index].prepend(listItems[listItems.length - 1]);
+        }
     },
 
-    lineUl1 : function () {
+    lineUl : function () {
         line.style.width = ulActiveElement.offsetWidth + 6 + 'px';
         line.style.left = (ulActiveElement.offsetLeft - 26) + 'px';
+    },
+
+    next_pver : function(){
+        const btnSlider = document.querySelectorAll('.btn-slide .btn');
+        const info = document.querySelectorAll('.info');
+        document.querySelector('.btn.active').classList.remove('active');
+        btnSlider[this.currentIndex].classList.add('active');
+        info[this.currentIndex].classList.add('active');
     },
 
 
@@ -321,33 +342,61 @@ const bookStore = {
             li.onclick = function(e) {
                 document.querySelector('li a.active').classList.remove('active');
                 li.classList.add('active');
-                _This.lineUl(index);
+                line.style.width = ulElement[index].offsetWidth + 'px';
+                line.style.left = ulElement[index].offsetLeft + 'px';
             };
         });
 
+        //Xử lý btn Slider
+        const slides = document.querySelectorAll('.slide');
+        const btnPver = document.querySelector('.slideshow .pver');
+        const btnNext = document.querySelector('.slideshow .next');
+        const info = document.querySelectorAll('.info');
+
+        btnPver.onclick = function(){
+            info[_This.currentIndex].classList.remove('active');
+            --_This.currentIndex;
+            if (_This.currentIndex < 0 ) {
+                _This.currentIndex = slides.length -1;
+            }
+            _This.next_pver();
+            _This.toPver(slides , slider , null);
+        };
+
+        btnNext.onclick = function(){
+            info[_This.currentIndex].classList.remove('active');
+            ++_This.currentIndex;
+            if (_This.currentIndex >  slides.length -1) {
+                _This.currentIndex = 0;
+            }
+            _This.next_pver();
+            _This.toNext(slides , slider , null);
+        };
+
         //Xử lý tiến và lùi products
-        const btnPvers = document.querySelectorAll('.pver');
-        const btnNexts = document.querySelectorAll('.next');
-        const listProducts = document.querySelectorAll('.list-item');
+        const btnPvers = document.querySelectorAll('.btn-products .pver');
+        const btnNexts = document.querySelectorAll('.btn-products .next');
 
         btnPvers.forEach((btn , index) => {
             btn.onclick = function () {
+                const listProducts = document.querySelectorAll('.list-item');
                 let listItems = document.querySelectorAll(`.id${index + 1}`);
-                listProducts[index].prepend(listItems[listItems.length - 1]); 
+                _This.toPver(listItems , listProducts , index);
             }
         });
         
         
         btnNexts.forEach((btn , index) => {
             btn.onclick = function () {
+                const listProducts = document.querySelectorAll('.list-item');
                 let listItems = document.querySelectorAll(`.id${index + 1}`);
-                listProducts[index].appendChild(listItems[0]);
+                _This.toNext(listItems , listProducts , index );
             }
         });
     },
 
     start : function(){
-        this.lineUl1();
+        this.lineUl();
 
         this.render();
 
