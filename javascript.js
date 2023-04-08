@@ -1,3 +1,4 @@
+const navElement = document.querySelector('.nav');
 const ulElement = document.querySelectorAll('li a');
 const ulActiveElement = document.querySelector('li a.active');
 const line = document.querySelector('.line');
@@ -5,6 +6,11 @@ const infoSlide = document.querySelector('.box-text');
 const slider = document.querySelector('.slider');
 const btnSlide = document.querySelector('.btn-slide');
 const productsElement = document.querySelector('.box-product');
+const overlay = document.querySelector('.overlay');
+const listCart = document.querySelector('.list-cart');
+const iClose = document.querySelector('.i-close');
+const navCart = document.querySelector('.cart-bar');
+
 
 const bookStore = {
     
@@ -12,48 +18,56 @@ const bookStore = {
         book1 = [
             {
                 id : 1,
+                idName : 1,
                 name: 'Nobita-Vũ trụ phiêu lưu kí',
                 image: './asset/img/doramon1.jpg',
                 price: 99
             },
             {
-                id : 1,
+                id : 2,
+                idName : 1,
                 name: 'Nobita và chuyến tàu tốc hành ngân hà',
                 image: './asset/img/doramon2.jpg',
                 price: 99
             },
             {
-                id : 1,
+                id : 3,
+                idName : 1,
                 name: 'Năm 2112 - Doramon ra đời',
                 image: './asset/img/doramon3.jpg',
                 price: 99
             },
             {
-                id : 1,
+                id : 4,
+                idName : 1,
                 name: 'Nobita và truyền thuyết vua mặt trời',
                 image: './asset/img/doramon4.jpg',
                 price: 99
             },
             {
-                id : 1,
+                id : 5,
+                idName : 1,
                 name: 'Chú khủng long của Nobita',
                 image: './asset/img/doramon5.jpg',
                 price: 99
             },
             {
-                id : 1,
+                id : 6,
+                idName : 1,
                 name: 'Nobita và hành tinh muông thú',
                 image: './asset/img/doramon6.jpg',
                 price: 99
             },
             {
-                id : 1,
+                id : 7,
+                idName : 1,
                 name: 'Đội quân Doramon',
                 image: './asset/img/doramon7.jpg',
                 price: 99
             },
             {
-                id : 1,
+                id : 8,
+                idName : 1,
                 name: 'Bí mật mê cung Bliki',
                 image: './asset/img/doramon8.jpg',
                 price: 99
@@ -62,49 +76,57 @@ const bookStore = {
 
         book2 = [
             {
-                id : 2,
+                id : 9,
+                idName : 2,
                 name: 'Sọ Dừa',
                 image: './asset/img/sach1.jpg',
                 price: 99
             },
             {
-                id : 2,
+                id : 10,
+                idName : 2,
                 name: 'Thánh Gióng',
                 image: './asset/img/sach2.jpg',
                 price: 99
             },
             {
-                id : 2,
+                id : 11,
+                idName : 2,
                 name: 'Cây Khế',
                 image: './asset/img/sach3.jpg',
                 price: 99
             },
             {
-                id : 2,
+                id : 12,
+                idName : 2,
                 name: 'Chú Bé Thông Minh',
                 image: './asset/img/sach4.jpg',
                 price: 99
             },
             {
-                id : 2,
+                id : 13,
+                idName : 2,
                 name: 'Lạc Long Quân và Âu Cơ',
                 image: './asset/img/sach5.jpg',
                 price: 99
             },
             {
-                id : 2,
+                id : 14,
+                idName : 2,
                 name: 'Tấm Cám',
                 image: './asset/img/sach6.jpg',
                 price: 99
             },
             {
-                id : 2,
+                id : 15,
+                idName : 2,
                 name: 'Mỵ Châu Trọng Thuỷ',
                 image: './asset/img/sach7.jpg',
                 price: 99
             },
             {
-                id : 2,
+                id : 16,
+                idName : 2,
                 name: 'Thạch Sanh',
                 image: './asset/img/sach8.jpg',
                 price: 99
@@ -112,51 +134,58 @@ const bookStore = {
         ],
 
         book3 = [
-
             {
-                id : 3,
+                id : 17,
+                idName : 3,
                 name: 'Tàn Khốc tập 1',
                 image: './asset/img/tgdq1.jpg',
                 price: 99
             },
             {
-                id : 3,
+                id : 18,
+                idName : 3,
                 name: 'Ngươi là... tập 2',
                 image: './asset/img/tgdq2.jpg',
                 price: 99
             },
             {
-                id : 3,
+                id : 19,
+                idName : 3,
                 name: 'Khích lệ bản thân tập 3',
                 image: './asset/img/tgdq3.jpg',
                 price: 99
             },
             {
-                id : 3,
+                id : 20,
+                idName : 3,
                 name: 'Lưỡi gươm mạnh mẽ tập 4',
                 image: './asset/img/tgdq4.jpg',
                 price: 99
             },
             {
-                id : 3,
+                id : 21,
+                idName : 3,
                 name: 'Xuống địa ngục tập 5',
                 image: './asset/img/tgdq5.jpg',
                 price: 99
             },
             {
-                id : 3,
+                id : 22,
+                idName : 3,
                 name: 'Phán xét của các trụ cột tập 6',
                 image: './asset/img/tgdq6.jpg',
                 price: 99
             },
             {
-                id : 3,
+                id : 23,
+                idName : 3,
                 name: 'Giao chiến nơi chật hẹp tập 7',
                 image: './asset/img/tgdq7.jpg',
                 price: 99
             },
             {
-                id : 3,
+                id : 24,
+                idName : 3,
                 name: 'Sức mạnh của Thượng Huyền tập 8',
                 image: './asset/img/tgdq8.jpg',
                 price: 99
@@ -198,9 +227,10 @@ const bookStore = {
     ],
 
     currentIndex : 0,
+    marginLeftSlide : 0,
 
     render : function (){
-        //Reder Banner
+        //Render Banner
         const html = this.listBanners.map(banner => {
             return `<div class="slide">
             <img src="${banner.image}">
@@ -231,12 +261,12 @@ const bookStore = {
         }
         infoSlide.innerHTML = info;
 
-        //reder products
+        //render products
         let htmlPoxProduct = '';
         this.listBooks.forEach(book => {      
             let htmlBook = book.map(sach => {
                 return `
-                <div class="item id${sach.id}">
+                <div class="item id${sach.idName}">
                 <img src="${sach.image}">
                 <div class="title-item">${sach.name}</div>
                 <div class="price">${sach.price}K</div>
@@ -245,7 +275,7 @@ const bookStore = {
                 `;
             });
             let checkName = this.idName.find(name => {
-                return name.id == book[0].id;
+                return name.id == book[0].idName;
             });
             let htmlProducts = `
                 <div class="title-product">${checkName.name}</div>
@@ -261,6 +291,7 @@ const bookStore = {
                 htmlPoxProduct += htmlProducts;
         });
         productsElement.innerHTML = htmlPoxProduct;
+
     },
 
     loadSlide : function(){
@@ -269,74 +300,63 @@ const bookStore = {
         const btnSlide = document.querySelectorAll('.btn-slide .btn');
         const info = document.querySelectorAll('.info');
 
-        // btnSlide.forEach((btn , index) => {
-        //     btn.onclick = function() {
-        //         info[_This.currentIndex].classList.remove('active')
-        //         _This.currentIndex = index;
-        //         slides[0].style.marginLeft = _This.marginLeftSlide + '%';
-        //         if (_This.marginLeftSlide == 0){
-        //             _This.marginLeftSlide = 20;
-        //         }
-        //         _This.marginLeftSlide = 20 * index;
-        //         document.querySelector('.btn.active').classList.remove('active');
-        //         btnSlide[_This.currentIndex].classList.add('active');
-        //         slides[0].style.marginLeft = -_This.marginLeftSlide + '%';
-        //         info[_This.currentIndex].classList.add('active');
-        //     }
-        // })
-        // setInterval(() => {
-        //     info[_This.currentIndex].classList.remove('active')
-        //     _This.currentIndex++;
-        //     if ( _This.currentIndex > slides.length - 1) {
-        //         _This.currentIndex = 0;
-        //     }
-        //     document.querySelector('.btn.active').classList.remove('active');
-        //     btnSlide[_This.currentIndex].classList.add('active');
-        //     _This.marginLeftSlide += 20;
-        //     if (_This.marginLeftSlide > ((_This.listBanners.length-1)*20)) {
-        //         _This.marginLeftSlide = 0;
-        //     }
-        //     slides[0].style.marginLeft = -_This.marginLeftSlide + '%';
-        //     info[_This.currentIndex].classList.add('active');
-        // }, 5000)
-
-
-
-    },
-
-    toNext : function(listItems , list , index) {
-        if(index == 'undefined'){
-            list.appendChild(listItems[0]);
-        }else {
-            list[index].appendChild(listItems[0]);
-        }
-    },
-    
-    toPver : function(listItems , list , index = 0) {
-
-        if(index == 'undefined'){
-            list.prepend(listItems[listItems.length - 1]);
-        }else {
-            list[index].prepend(listItems[listItems.length - 1]);
-        }
+        btnSlide.forEach((btn , index) => {
+            btn.onclick = function() {
+                info[_This.currentIndex].classList.remove('active')
+                _This.currentIndex = index;
+                slides[0].style.marginLeft = _This.marginLeftSlide + '%';
+                if (_This.marginLeftSlide == 0){
+                    _This.marginLeftSlide = 20;
+                }
+                _This.marginLeftSlide = 20 * index;
+                document.querySelector('.btn.active').classList.remove('active');
+                btnSlide[_This.currentIndex].classList.add('active');
+                slides[0].style.marginLeft = -_This.marginLeftSlide + '%';
+                info[_This.currentIndex].classList.add('active');
+            }
+        })
+        setInterval(() => {
+            info[_This.currentIndex].classList.remove('active')
+            _This.currentIndex++;
+            if ( _This.currentIndex > slides.length - 1) {
+                _This.currentIndex = 0;
+            }
+            document.querySelector('.btn.active').classList.remove('active');
+            btnSlide[_This.currentIndex].classList.add('active');
+            _This.marginLeftSlide += 20;
+            if (_This.marginLeftSlide > ((_This.listBanners.length-1)*20)) {
+                _This.marginLeftSlide = 0;
+            }
+            slides[0].style.marginLeft = -_This.marginLeftSlide + '%';
+            info[_This.currentIndex].classList.add('active');
+        }, 5000)
     },
 
     lineUl : function () {
         line.style.width = ulActiveElement.offsetWidth + 6 + 'px';
-        line.style.left = (ulActiveElement.offsetLeft - 26) + 'px';
+        line.style.left = (ulActiveElement.offsetLeft - 29) + 'px';
     },
 
-    next_pver : function(){
-        const btnSlider = document.querySelectorAll('.btn-slide .btn');
-        const info = document.querySelectorAll('.info');
-        document.querySelector('.btn.active').classList.remove('active');
-        btnSlider[this.currentIndex].classList.add('active');
-        info[this.currentIndex].classList.add('active');
-    },
+    addToCart : function(index) {
+        bookStore.isCartHiden = true;
+        overlay.classList.remove('hidenCart');
+        listCart.classList.remove('hidenCart');
 
+
+    },
 
     handleEvents : function() {
         const _This = this;
+
+        //Xử lý khi nav khi trượt màn hình xuống
+        document.onscroll = function(){
+            if(window.scrollY > 250){
+                navElement.classList.add('toFixed');
+            }else {
+                navElement.classList.remove('toFixed');
+            }
+        }
+
         //Xử lý line khi active vô navigation
         ulElement.forEach((li , index) => {
             li.onclick = function(e) {
@@ -347,52 +367,51 @@ const bookStore = {
             };
         });
 
-        //Xử lý btn Slider
-        const slides = document.querySelectorAll('.slide');
-        const btnPver = document.querySelector('.slideshow .pver');
-        const btnNext = document.querySelector('.slideshow .next');
-        const info = document.querySelectorAll('.info');
-
-        btnPver.onclick = function(){
-            info[_This.currentIndex].classList.remove('active');
-            --_This.currentIndex;
-            if (_This.currentIndex < 0 ) {
-                _This.currentIndex = slides.length -1;
-            }
-            _This.next_pver();
-            _This.toPver(slides , slider , null);
-        };
-
-        btnNext.onclick = function(){
-            info[_This.currentIndex].classList.remove('active');
-            ++_This.currentIndex;
-            if (_This.currentIndex >  slides.length -1) {
-                _This.currentIndex = 0;
-            }
-            _This.next_pver();
-            _This.toNext(slides , slider , null);
-        };
-
         //Xử lý tiến và lùi products
-        const btnPvers = document.querySelectorAll('.btn-products .pver');
-        const btnNexts = document.querySelectorAll('.btn-products .next');
+        const btnPvers = document.querySelectorAll('.pver');
+        const btnNexts = document.querySelectorAll('.next');
+        const listProducts = document.querySelectorAll('.products .list-item');
 
         btnPvers.forEach((btn , index) => {
             btn.onclick = function () {
-                const listProducts = document.querySelectorAll('.list-item');
-                let listItems = document.querySelectorAll(`.id${index + 1}`);
-                _This.toPver(listItems , listProducts , index);
+                let listItems = document.querySelectorAll(`.item.id${index + 1}`);
+                listProducts[index].prepend(listItems[listItems.length - 1]); 
             }
         });
         
         
         btnNexts.forEach((btn , index) => {
             btn.onclick = function () {
-                const listProducts = document.querySelectorAll('.list-item');
-                let listItems = document.querySelectorAll(`.id${index + 1}`);
-                _This.toNext(listItems , listProducts , index );
+                let listItems = document.querySelectorAll(`.item.id${index + 1}`);
+                listProducts[index].appendChild(listItems[0]);
             }
         });
+
+        //Xử lý khi bấm vô add cart
+        const btnAdd = document.querySelectorAll('.btn-add');
+        
+        btnAdd.forEach((btn , index) => {
+            btn.onclick = function(){
+                _This.addToCart((index+1))
+            }
+        });
+
+        //Xử lý khi bấm vô nav cart
+        navCart.onclick = function() {
+            _This.addToCart();
+        };
+
+        //Xử lý thoát nav cart
+        overlay.onclick = function() {
+            overlay.classList.add('hidenCart');
+            listCart.classList.add('hidenCart');
+        };
+        iClose.onclick = function() {
+            overlay.classList.add('hidenCart');
+            listCart.classList.add('hidenCart');
+        };
+
+        
     },
 
     start : function(){
