@@ -10,6 +10,8 @@ const overlay = document.querySelector('.overlay');
 const listCart = document.querySelector('.list-cart');
 const iClose = document.querySelector('.i-close');
 const navCart = document.querySelector('.cart-bar');
+const listItemCart = document.querySelector('.list-item-cart');
+const countProduct = document.querySelector('.count-product');
 
 
 const bookStore = {
@@ -266,7 +268,7 @@ const bookStore = {
         this.listBooks.forEach(book => {      
             let htmlBook = book.map(sach => {
                 return `
-                <div class="item id${sach.idName}">
+                <div class="item id${sach.idName}" id-key="${sach.id}">
                 <img src="${sach.image}">
                 <div class="title-item">${sach.name}</div>
                 <div class="price">${sach.price}K</div>
@@ -337,12 +339,57 @@ const bookStore = {
         line.style.left = (ulActiveElement.offsetLeft - 29) + 'px';
     },
 
-    addToCart : function(index) {
-        bookStore.isCartHiden = true;
+    htmlListItemCart : [] ,
+
+    countItemInCart : function() {
+        let countItemInCart = bookStore.htmlListItemCart.length;
+        countProduct.innerHTML = countItemInCart;
+    },
+
+    addToCart : function(id) {
         overlay.classList.remove('hidenCart');
         listCart.classList.remove('hidenCart');
+        if (id === undefined && bookStore.htmlListItemCart == []) {
+            return;
+        }
+        let item;
+        bookStore.listBooks.forEach(books => {
+            books.forEach(book => {
+                if(book.id == id) {
+                    item = book;
+                }
+            })
+        });
+        let countItemCart = bookStore.htmlListItemCart.length;
+        bookStore.htmlListItemCart.push(`
+                <div class="item-cart" id-key="${countItemCart}">
+                    <img src="${item.image}">
+                    <div class="info-cart">
+                        <div class="title">${item.name}</div>
+                        <div class="price">${item.price}K</div>
+                        <input type="number" value="1" min="1">
+                    </div>
+                    <div class="i-delete"><i class="fa-regular fa-circle-xmark"></i></div>
+                </div>`);
+        listItemCart.innerHTML = bookStore.htmlListItemCart.join('');
+        
+        bookStore.countItemInCart();
 
+        //Xử lý xoá item in cart
+        let iDelete = document.querySelectorAll('.i-delete');
+        bookStore.delItemInCart(iDelete);
+    },
 
+    delItemInCart : function(iDel) {
+        iDel.forEach(item => {
+            item.onclick = function() {
+                let itemParent = item.parentNode;
+                let id = itemParent.getAttribute('id-key');
+                bookStore.htmlListItemCart.splice(id , 1);
+                itemParent.style.display = 'none';
+                bookStore.countItemInCart();
+            };
+        });
     },
 
     handleEvents : function() {
@@ -354,8 +401,8 @@ const bookStore = {
                 navElement.classList.add('toFixed');
             }else {
                 navElement.classList.remove('toFixed');
-            }
-        }
+            };
+        };
 
         //Xử lý line khi active vô navigation
         ulElement.forEach((li , index) => {
@@ -376,7 +423,7 @@ const bookStore = {
             btn.onclick = function () {
                 let listItems = document.querySelectorAll(`.item.id${index + 1}`);
                 listProducts[index].prepend(listItems[listItems.length - 1]); 
-            }
+            };
         });
         
         
@@ -384,16 +431,17 @@ const bookStore = {
             btn.onclick = function () {
                 let listItems = document.querySelectorAll(`.item.id${index + 1}`);
                 listProducts[index].appendChild(listItems[0]);
-            }
+            };
         });
 
         //Xử lý khi bấm vô add cart
         const btnAdd = document.querySelectorAll('.btn-add');
         
-        btnAdd.forEach((btn , index) => {
+        btnAdd.forEach(btn => {
             btn.onclick = function(){
-                _This.addToCart((index+1))
-            }
+                let item = btn.parentNode;
+                _This.addToCart(item.getAttribute('id-key'));
+            };
         });
 
         //Xử lý khi bấm vô nav cart
@@ -410,6 +458,7 @@ const bookStore = {
             overlay.classList.add('hidenCart');
             listCart.classList.add('hidenCart');
         };
+
 
         
     },
