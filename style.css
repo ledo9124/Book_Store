@@ -519,6 +519,9 @@ body {
 }
 
 .list-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     right: 0;
@@ -566,7 +569,13 @@ body {
 }
 
 .list-cart .list-item-cart {
+    flex: 1;
     padding: 12px 20px;
+    overflow: auto;
+}
+
+.list-item-cart::-webkit-scrollbar {
+    width: 0;
 }
 
 .list-item-cart .item-cart {
@@ -629,11 +638,8 @@ body {
 }
 
 .list-cart .total-cart {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     padding: 20px;
+    border-top: 1px solid #ccc;
 }
 
 .total-cart .total {

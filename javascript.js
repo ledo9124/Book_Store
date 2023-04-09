@@ -12,6 +12,7 @@ const iClose = document.querySelector('.i-close');
 const navCart = document.querySelector('.cart-bar');
 const listItemCart = document.querySelector('.list-item-cart');
 const countProduct = document.querySelector('.count-product');
+const totalElement = document.querySelector('.total-cart .total');
 
 
 const bookStore = {
@@ -343,13 +344,16 @@ const bookStore = {
 
     countItemInCart : function() {
         let countItemInCart = bookStore.htmlListItemCart.length;
+        if (countItemInCart == 0) {
+            listItemCart.innerHTML = `<h4>Giỏ hàng trống!!</h4>`;
+        };
         countProduct.innerHTML = countItemInCart;
     },
 
     addToCart : function(id) {
         overlay.classList.remove('hidenCart');
         listCart.classList.remove('hidenCart');
-        if (id === undefined && bookStore.htmlListItemCart == []) {
+        if (id === undefined) {
             return;
         }
         let item;
@@ -362,11 +366,11 @@ const bookStore = {
         });
         let countItemCart = bookStore.htmlListItemCart.length;
         bookStore.htmlListItemCart.push(`
-                <div class="item-cart" id-key="${countItemCart}">
+                <div class="item-cart" id-key="${countItemCart}" id-book="${item.id}">
                     <img src="${item.image}">
                     <div class="info-cart">
                         <div class="title">${item.name}</div>
-                        <div class="price">${item.price}K</div>
+                        <div class="price" price="${item.price}">${item.price}K</div>
                         <input type="number" value="1" min="1">
                     </div>
                     <div class="i-delete"><i class="fa-regular fa-circle-xmark"></i></div>
@@ -376,18 +380,49 @@ const bookStore = {
         bookStore.countItemInCart();
 
         //Xử lý xoá item in cart
-        let iDelete = document.querySelectorAll('.i-delete');
-        bookStore.delItemInCart(iDelete);
+        bookStore.delItemInCart();
+
+        //Xử lý total cart
+        bookStore.subTotal();
     },
 
-    delItemInCart : function(iDel) {
-        iDel.forEach(item => {
+    delItemInCart : function() {
+        let iDelete = document.querySelectorAll('.i-delete');
+        iDelete.forEach((item , index) => {
             item.onclick = function() {
                 let itemParent = item.parentNode;
-                let id = itemParent.getAttribute('id-key');
-                bookStore.htmlListItemCart.splice(id , 1);
                 itemParent.style.display = 'none';
+                let currentIdex;
+                bookStore.htmlListItemCart.forEach((book , vitri) => {
+                    if(book.includes(`id-key="${index}"`)) {
+                        currentIdex = vitri;
+                    }
+                });
+                bookStore.htmlListItemCart.splice(currentIdex , 1);
+                
                 bookStore.countItemInCart();
+                
+                bookStore.subTotal();
+            };
+        });
+    },
+
+    subTotal : function() {
+        let listItem = document.querySelectorAll('.item-cart');
+        let subTotal = 0
+        let quantyti;
+        
+        listItem.forEach((item , index) => {
+            quantyti = item.querySelector('input').value;
+            subTotal += item.querySelector('.price').getAttribute('price') * quantyti;
+        });
+        totalElement.innerHTML = subTotal + 'K';
+
+        let inputQuantyti = document.querySelectorAll('.item-cart input');
+        inputQuantyti.forEach(input => {
+            input.onchage  = function(e) {
+                quantyti = e.target.value;
+                bookStore.subTotal();
             };
         });
     },
@@ -460,7 +495,7 @@ const bookStore = {
         };
 
 
-        
+
     },
 
     start : function(){
