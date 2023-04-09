@@ -24,56 +24,64 @@ const bookStore = {
                 idName : 1,
                 name: 'Nobita-Vũ trụ phiêu lưu kí',
                 image: './asset/img/doramon1.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 2,
                 idName : 1,
                 name: 'Nobita và chuyến tàu tốc hành ngân hà',
                 image: './asset/img/doramon2.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 3,
                 idName : 1,
                 name: 'Năm 2112 - Doramon ra đời',
                 image: './asset/img/doramon3.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 4,
                 idName : 1,
                 name: 'Nobita và truyền thuyết vua mặt trời',
                 image: './asset/img/doramon4.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 5,
                 idName : 1,
                 name: 'Chú khủng long của Nobita',
                 image: './asset/img/doramon5.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 6,
                 idName : 1,
                 name: 'Nobita và hành tinh muông thú',
                 image: './asset/img/doramon6.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 7,
                 idName : 1,
                 name: 'Đội quân Doramon',
                 image: './asset/img/doramon7.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 8,
                 idName : 1,
                 name: 'Bí mật mê cung Bliki',
                 image: './asset/img/doramon8.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
         ],
 
@@ -83,56 +91,64 @@ const bookStore = {
                 idName : 2,
                 name: 'Sọ Dừa',
                 image: './asset/img/sach1.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 10,
                 idName : 2,
                 name: 'Thánh Gióng',
                 image: './asset/img/sach2.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 11,
                 idName : 2,
                 name: 'Cây Khế',
                 image: './asset/img/sach3.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 12,
                 idName : 2,
                 name: 'Chú Bé Thông Minh',
                 image: './asset/img/sach4.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 13,
                 idName : 2,
                 name: 'Lạc Long Quân và Âu Cơ',
                 image: './asset/img/sach5.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 14,
                 idName : 2,
                 name: 'Tấm Cám',
                 image: './asset/img/sach6.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 15,
                 idName : 2,
                 name: 'Mỵ Châu Trọng Thuỷ',
                 image: './asset/img/sach7.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 16,
                 idName : 2,
                 name: 'Thạch Sanh',
                 image: './asset/img/sach8.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
         ],
 
@@ -142,56 +158,64 @@ const bookStore = {
                 idName : 3,
                 name: 'Tàn Khốc tập 1',
                 image: './asset/img/tgdq1.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 18,
                 idName : 3,
                 name: 'Ngươi là... tập 2',
                 image: './asset/img/tgdq2.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 19,
                 idName : 3,
                 name: 'Khích lệ bản thân tập 3',
                 image: './asset/img/tgdq3.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 20,
                 idName : 3,
                 name: 'Lưỡi gươm mạnh mẽ tập 4',
                 image: './asset/img/tgdq4.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 21,
                 idName : 3,
                 name: 'Xuống địa ngục tập 5',
                 image: './asset/img/tgdq5.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 22,
                 idName : 3,
                 name: 'Phán xét của các trụ cột tập 6',
                 image: './asset/img/tgdq6.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 23,
                 idName : 3,
                 name: 'Giao chiến nơi chật hẹp tập 7',
                 image: './asset/img/tgdq7.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             },
             {
                 id : 24,
                 idName : 3,
                 name: 'Sức mạnh của Thượng Huyền tập 8',
                 image: './asset/img/tgdq8.jpg',
-                price: 99
+                price: 99,
+                quantity : 1
             }
         ],
     ],
@@ -340,10 +364,10 @@ const bookStore = {
         line.style.left = (ulActiveElement.offsetLeft - 29) + 'px';
     },
 
-    htmlListItemCart : [] ,
+    listItemInCart : [] ,
 
     countItemInCart : function() {
-        let countItemInCart = bookStore.htmlListItemCart.length;
+        let countItemInCart = bookStore.listItemInCart.length;
         if (countItemInCart == 0) {
             listItemCart.innerHTML = `<h4>Giỏ hàng trống!!</h4>`;
         };
@@ -356,26 +380,28 @@ const bookStore = {
         if (id === undefined) {
             return;
         }
-        let item;
+        bookStore.listItemInCart.push(id);
+        let htmlListItemCart = '';
         bookStore.listBooks.forEach(books => {
             books.forEach(book => {
-                if(book.id == id) {
-                    item = book;
-                }
-            })
+                bookStore.listItemInCart.forEach(value =>{
+                    if(book.id == value) {
+                        htmlListItemCart += `
+                        <div class="item-cart" id-book="${book.id}">
+                            <img src="${book.image}">
+                            <div class="info-cart">
+                                <div class="title">${book.name}</div>
+                                <div class="price" price="${book.price}">${book.price}K</div>
+                                <input type="number" value="${book.quantity}" min="1" data-quantity="${book.quantity}">
+                            </div>
+                            <div class="i-delete"><i class="fa-regular fa-circle-xmark"></i></div>
+                        </div>`;
+                    };
+                });
+            });
         });
-        let countItemCart = bookStore.htmlListItemCart.length;
-        bookStore.htmlListItemCart.push(`
-                <div class="item-cart" id-key="${countItemCart}" id-book="${item.id}">
-                    <img src="${item.image}">
-                    <div class="info-cart">
-                        <div class="title">${item.name}</div>
-                        <div class="price" price="${item.price}">${item.price}K</div>
-                        <input type="number" value="1" min="1">
-                    </div>
-                    <div class="i-delete"><i class="fa-regular fa-circle-xmark"></i></div>
-                </div>`);
-        listItemCart.innerHTML = bookStore.htmlListItemCart.join('');
+        
+        listItemCart.innerHTML = htmlListItemCart;
         
         bookStore.countItemInCart();
 
@@ -388,18 +414,14 @@ const bookStore = {
 
     delItemInCart : function() {
         let iDelete = document.querySelectorAll('.i-delete');
-        iDelete.forEach((item , index) => {
+        iDelete.forEach(item => {
             item.onclick = function() {
                 let itemParent = item.parentNode;
                 itemParent.style.display = 'none';
-                let currentIdex;
-                bookStore.htmlListItemCart.forEach((book , vitri) => {
-                    if(book.includes(`id-key="${index}"`)) {
-                        currentIdex = vitri;
-                    }
+                bookStore.listItemInCart = bookStore.listItemInCart.filter(item => {
+                    return item !== itemParent.getAttribute('id-book');
                 });
-                bookStore.htmlListItemCart.splice(currentIdex , 1);
-                
+
                 bookStore.countItemInCart();
                 
                 bookStore.subTotal();
@@ -410,21 +432,43 @@ const bookStore = {
     subTotal : function() {
         let listItem = document.querySelectorAll('.item-cart');
         let subTotal = 0
-        let quantyti;
-        
-        listItem.forEach((item , index) => {
-            quantyti = item.querySelector('input').value;
-            subTotal += item.querySelector('.price').getAttribute('price') * quantyti;
+        let items = [];
+
+        bookStore.listBooks.forEach(books => {
+            bookStore.listItemInCart.forEach(value => {
+                books.forEach(book => {
+                    if(book.id == value) {
+                        items.push(book);
+                    };
+                });
+            });
         });
+
+        items.forEach(item => {
+            let quantity;
+            listItem.forEach(itemCart => {
+                if (itemCart.getAttribute('id-book') == item.id) {
+                    quantity = parseInt(itemCart.querySelector('input').getAttribute('data-quantity'));
+                    if (quantity !== item.quantity && quantity !== undefined) {
+                        item.quantity = quantity;
+                    }
+                };
+            });
+            subTotal += item.price * quantity;
+        });
+
         totalElement.innerHTML = subTotal + 'K';
 
-        let inputQuantyti = document.querySelectorAll('.item-cart input');
-        inputQuantyti.forEach(input => {
-            input.onchage  = function(e) {
-                quantyti = e.target.value;
+        let inputQuantity = document.querySelectorAll('.item-cart input');
+
+        inputQuantity.forEach(input => {
+            input.onchange = function(e) {
+                e.target.dataset.quantity = parseInt(e.target.value);
+                
                 bookStore.subTotal();
-            };
+            }
         });
+
     },
 
     handleEvents : function() {
