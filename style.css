@@ -505,7 +505,7 @@ body {
 /*End list Produces */
 
 /* cart */
-
+.overlay-form,
 .overlay {
     position: fixed;
     right: 0;
@@ -690,7 +690,114 @@ body {
     box-shadow: 0 5px 5px #12c2e9;
 }
 
-
 /*End cart */
+
+/* form signin */
+
+.form-signin {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    z-index: 4;
+    width: 500px;
+    height: 480px;
+    padding: 30px 50px;
+    border-radius: 16px;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay-form.active,
+.form-signin.active {
+    animation: toSignIn linear 1 .5s forwards;
+}
+
+
+@keyframes toSignIn {
+    from {
+        opacity: 0;
+        transform: translate( -50% ,-100%);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.form-signin h2 {
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: .1em;
+    text-align: center;
+}
+
+.form-signin .input-box {
+    position: relative;
+    width: 400px;
+    margin: 30px auto 0;
+}
+
+.input-box input {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #23242a;
+    font-size: 1em;
+    letter-spacing: .05em;
+}
+
+.input-box span {
+    position: absolute;
+    left: 0;
+    padding: 20px 10px 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: #333;
+    letter-spacing: .05em;
+    transition: .5s;
+}
+
+.input-box input:valid ~ span,
+.input-box input:focus ~ span {
+    color: #000;
+    transform: translateY(-34px);
+    font-size: .9em;
+}
+
+.input-box i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    pointer-events: none;
+}
+
+.form-signin input[type="submit"] {
+    outline: none;
+    border: none;
+    background-color: #12c2e9;
+    padding: 16px 25px;
+    font-weight: bold;
+    font-size: 1.2em;
+    width: 150px;
+    border-radius: 8px;
+    margin: 20px auto 0;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.form-signin input[type="submit"]:hover {
+    background-color: #317ff5;
+    box-shadow: 0 5px 5px #317ff5;
+    transform: translateY(-8px);
+}
+
+/*End form signin */
 
 

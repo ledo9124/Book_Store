@@ -13,6 +13,9 @@ const navCart = document.querySelector('.cart-bar');
 const listItemCart = document.querySelector('.list-item-cart');
 const countProduct = document.querySelector('.count-product');
 const totalElement = document.querySelector('.total-cart .total p');
+const formUser = document.querySelector('.form-user');
+const overlayForm = document.querySelector('.overlay-form');
+const formSignIn = document.querySelector('.form-signin');
 
 
 const bookStore = {
@@ -375,7 +378,7 @@ const bookStore = {
     },
 
     addToCart : function(id) {
-        overlay.classList.remove('hidenCart');
+        overlay.classList.remove('hiden');
         listCart.classList.remove('hidenCart');
         if (id === undefined) {
             return;
@@ -486,6 +489,14 @@ const bookStore = {
 
     },
 
+    isLogged : false,
+    signIn : function(){
+        formSignIn.classList.remove('hiden');
+        overlayForm.classList.remove('hiden');
+        formSignIn.classList.add('active');
+        overlayForm.classList.add('active');
+    },
+
     scrollToActiveSong : function(element) {
         setTimeout(() => {
             element.scrollIntoView({
@@ -554,15 +565,31 @@ const bookStore = {
 
         //Xử lý thoát nav cart
         overlay.onclick = function() {
-            overlay.classList.add('hidenCart');
+            overlay.classList.add('hiden');
             listCart.classList.add('hidenCart');
         };
         iClose.onclick = function() {
-            overlay.classList.add('hidenCart');
+            overlay.classList.add('hiden');
             listCart.classList.add('hidenCart');
         };
 
+        //Xử lý khi bấm vào form user
+        formUser.onclick = function() {
+            if (!_This.isLogged) {
+                _This.signIn();
+            }else {
 
+            }
+        };
+
+        //Xử lý khi thoát khỏi form
+        overlayForm.onclick = function() {
+            formSignIn.classList.add('hiden');
+            overlayForm.classList.add('hiden');
+            formSignIn.classList.remove('active');
+            overlayForm.classList.remove('active');
+        };
+        
 
     },
 
