@@ -583,10 +583,17 @@ body {
     position: relative;
     padding: 20px 0;
     border-bottom: 1px solid #ccc;
+    transform: translateY(0);
+    transition: .5s;
 }
 
 .list-cart .item-cart:last-child {
     border: none;
+}
+
+.item-cart.danger {
+    transform: translateY(-16px);
+    box-shadow: 0 0px 16px #f51919;
 }
 
 .item-cart img {
@@ -643,6 +650,8 @@ body {
 }
 
 .total-cart .total {
+    display: flex;
+    align-items: center;
     font-size: 1.52em;
     color: red;
     font-weight: bold;
@@ -650,9 +659,14 @@ body {
     border-bottom: 1px solid #ccc;
 }
 
+.total-cart .total p {
+    font-size: 1.52em;
+}
+
 .total-cart .total span {
     font-family: 'Lobster', cursive;
     font-size: 1.53em;
+    padding-left: 12px;
 }
 
 .total-cart button {

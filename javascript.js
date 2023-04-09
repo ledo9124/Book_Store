@@ -12,7 +12,7 @@ const iClose = document.querySelector('.i-close');
 const navCart = document.querySelector('.cart-bar');
 const listItemCart = document.querySelector('.list-item-cart');
 const countProduct = document.querySelector('.count-product');
-const totalElement = document.querySelector('.total-cart .total');
+const totalElement = document.querySelector('.total-cart .total p');
 
 
 const bookStore = {
@@ -380,6 +380,21 @@ const bookStore = {
         if (id === undefined) {
             return;
         }
+        console.log(bookStore.listItemInCart.includes(id));
+        if (bookStore.listItemInCart.includes(id)){
+            let listItem = document.querySelectorAll('.item-cart');
+            listItem.forEach(item => {
+                console.log(item);
+                if(item.getAttribute('id-book') == id) {
+                    item.classList.add('danger');
+                    bookStore.scrollToActiveSong(document.querySelector('.item-cart.danger'));
+                    setTimeout(() => {
+                        item.classList.remove('danger');
+                    }, 1500);   
+                }
+            })   
+            return;
+        }
         bookStore.listItemInCart.push(id);
         let htmlListItemCart = '';
         bookStore.listBooks.forEach(books => {
@@ -457,7 +472,7 @@ const bookStore = {
             subTotal += item.price * quantity;
         });
 
-        totalElement.innerHTML = subTotal + 'K';
+        totalElement.innerHTML = subTotal;
 
         let inputQuantity = document.querySelectorAll('.item-cart input');
 
@@ -469,6 +484,15 @@ const bookStore = {
             }
         });
 
+    },
+
+    scrollToActiveSong : function(element) {
+        setTimeout(() => {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+            });
+        }, 500)
     },
 
     handleEvents : function() {
