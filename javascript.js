@@ -16,6 +16,12 @@ const totalElement = document.querySelector('.total-cart .total p');
 const formUser = document.querySelector('.form-user');
 const overlayForm = document.querySelector('.overlay-form');
 const formSignIn = document.querySelector('.form-signin');
+const inptEmail = document.querySelector('.email');
+const inptUserName = document.querySelector('.user-name');
+const inptPass = document.querySelector('.password');
+const inptRepass = document.querySelector('.repass');
+const textCheck = document.querySelectorAll('.check');
+const login = document.querySelector('input[type="submit"]');
 
 
 const bookStore = {
@@ -345,6 +351,7 @@ const bookStore = {
                 info[_This.currentIndex].classList.add('active');
             }
         })
+        
         setInterval(() => {
             info[_This.currentIndex].classList.remove('active')
             _This.currentIndex++;
@@ -490,11 +497,24 @@ const bookStore = {
     },
 
     isLogged : false,
-    signIn : function(){
-        formSignIn.classList.remove('hiden');
-        overlayForm.classList.remove('hiden');
-        formSignIn.classList.add('active');
-        overlayForm.classList.add('active');
+    signIn : function(input , index , check , text1 , text2){
+        const inputBox = input.parentNode;
+        if (check) {
+            inputBox.classList.add('success');
+            inputBox.classList.remove('false');
+            textCheck[index].innerHTML = text1;
+            textCheck[index].style.color = '#12ef24';
+        }else {
+            inputBox.classList.remove('success');
+            inputBox.classList.add('false');
+            textCheck[index].innerHTML = text2;
+            textCheck[index].style.color = '#ff0000';
+        }
+        if (input.value === '') {
+            inputBox.classList.remove('success');
+            inputBox.classList.remove('false');
+            textCheck[index].innerHTML = '';
+        }
     },
 
     scrollToActiveSong : function(element) {
@@ -576,7 +596,10 @@ const bookStore = {
         //Xử lý khi bấm vào form user
         formUser.onclick = function() {
             if (!_This.isLogged) {
-                _This.signIn();
+                formSignIn.classList.remove('hiden');
+                overlayForm.classList.remove('hiden');
+                formSignIn.classList.add('active');
+                overlayForm.classList.add('active');
             }else {
 
             }
@@ -589,6 +612,40 @@ const bookStore = {
             formSignIn.classList.remove('active');
             overlayForm.classList.remove('active');
         };
+
+        //Xử lý khi nhập form
+        let checkName , checkPass , checkRepass , checkEmail;
+        inptUserName.onkeyup = function() {
+            checkName = inptUserName.value.match(/^[a-zA-Z]+$/) ? true : false;
+            _This.signIn(inptUserName , 0 , checkName , 'User name hợp lệ' , 'User name chỉ bao gồm chữ cái!')
+        };
+        
+        inptPass.onkeyup = function() {
+            checkPass = inptPass.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$/) ? true : false ;
+            _This.signIn(inptPass , 1 , checkPass , 'Mật khẩu mạnh vcl!' , 'Mật khẩu bao gồm số , in hoa , in thường , ký tự , > 8!')
+        };
+
+        inptRepass.onkeyup = function() {
+            checkRepass = inptRepass.value == inptPass.value ? true : false;
+            _This.signIn(inptRepass , 2 , checkRepass , 'Mật khẩu đã hợp lệ!' , 'Mật khẩu chưa trùng khớp!');
+        };
+
+        inptEmail.onkeyup = function(){
+            checkEmail = inptEmail.value.match(/^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i) ? true : false ;
+            _This.signIn(inptEmail , 3 , checkEmail , 'Email hợp lệ!' , 'Email chưa hợp lệ!');
+        };
+
+        login.onclick = function() {
+            if (checkName == true && checkPass == true && checkRepass == true && checkEmail == true) {
+                alert('Chúc Mừng Bạn Đã Đăng Ký Thành Công!');
+                _This.isLogged = true;
+            }else {
+                alert('Đăng Nhập Thất Bại! Vui lòng Nhập Đủ Thông Tin!');
+            }
+        }
+
+
+        
         
 
     },
