@@ -222,7 +222,6 @@ body {
     cursor: pointer;
 }
 
-
 .info-user .user::before {
     position: absolute;
     display: flex;
@@ -486,8 +485,6 @@ body {
 .list-item .item:nth-child(n+6) .btn-add {
     cursor:default;
 }
-
-
 
 .list-item .item img {
     padding: 10px 40px 20px;

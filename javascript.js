@@ -611,6 +611,7 @@ const bookStore = {
             overlay.classList.add('hiden');
             listCart.classList.add('hidenCart');
         };
+        
         iClose.onclick = function() {
             overlay.classList.add('hiden');
             listCart.classList.add('hidenCart');
