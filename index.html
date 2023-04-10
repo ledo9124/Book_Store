@@ -44,21 +44,30 @@
 
             <div class="form-user">
 
-                <div class="user"><i class="fa-solid fa-user"></i></div>
+                <div class="user"><img src="./asset/img/avata.jpg"></div>
                 <div class="sign-in">Sign In</div>
 
                 <ul class="nav-bar hiden">
                     <li>
                         <div class="info-user">
-                            <div class="user"><i class="fa-solid fa-user"></i></div>
+                            <div class="user"><img src="./asset/img/avata.jpg"></div>
                             <div class="name">Lê Minh Độ</div>
                         </div>
                     </li>
-                    <li>Sign Out</li>
+                    <li class="sign-out">Sign Out</li>
                 </ul>
                 
             </div>
             
+        </div>
+
+        <div class="change-avata hiden">
+            <img src="./asset/img/avata.jpg">
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i> Tải ảnh lên
+            </label>
+            <input id="file-upload" type="file" hidden/>
+            <button>Save</button>
         </div>
 
         <div class="overlay-form hiden"></div>

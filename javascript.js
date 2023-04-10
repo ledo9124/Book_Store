@@ -22,7 +22,13 @@ const inptPass = document.querySelector('.password');
 const inptRepass = document.querySelector('.repass');
 const textCheck = document.querySelectorAll('.check');
 const login = document.querySelector('input[type="submit"]');
-
+const changeAvataElement = document.querySelector('.change-avata');
+const avataUser = document.querySelector('.change-avata img');
+const fileUpImg = document.querySelector('#file-upload');
+const btnSave = document.querySelector('.change-avata button');
+const navBar = document.querySelector('.nav-bar');
+const infoUser = document.querySelector('.info-user');
+const signOut = navBar.querySelector('.sign-out');
 
 const bookStore = {
     
@@ -517,6 +523,13 @@ const bookStore = {
         }
     },
 
+    userInfo : '',
+    changeAvata : function() {
+        const imgAvata = document.querySelectorAll('.user img');
+        imgAvata[0].src = URL.createObjectURL(fileUpImg.files[0]);
+        imgAvata[1].src = URL.createObjectURL(fileUpImg.files[0]);
+    },
+
     scrollToActiveSong : function(element) {
         setTimeout(() => {
             element.scrollIntoView({
@@ -573,6 +586,11 @@ const bookStore = {
         
         btnAdd.forEach(btn => {
             btn.onclick = function(){
+                if (!_This.isLogged) {
+                    alert('Vui lòng đăng nhập!!');
+                    formUser.click();
+                    return;
+                };
                 let item = btn.parentNode;
                 _This.addToCart(item.getAttribute('id-key'));
             };
@@ -580,6 +598,11 @@ const bookStore = {
 
         //Xử lý khi bấm vô nav cart
         navCart.onclick = function() {
+            if (!_This.isLogged) {
+                alert('Vui lòng đăng nhập!!');
+                formUser.click();
+                return;
+            };
             _This.addToCart();
         };
 
@@ -601,7 +624,8 @@ const bookStore = {
                 formSignIn.classList.add('active');
                 overlayForm.classList.add('active');
             }else {
-
+                navBar.classList.remove('hiden');
+                overlayForm.classList.remove('hiden');
             }
         };
 
@@ -611,12 +635,14 @@ const bookStore = {
             overlayForm.classList.add('hiden');
             formSignIn.classList.remove('active');
             overlayForm.classList.remove('active');
+            changeAvataElement.classList.add('hiden');
+            navBar.classList.add('hiden');
         };
 
         //Xử lý khi nhập form
         let checkName , checkPass , checkRepass , checkEmail;
         inptUserName.onkeyup = function() {
-            checkName = inptUserName.value.match(/^[a-zA-Z]+$/) ? true : false;
+            checkName = inptUserName.value.match(/^[a-zA-Z0-9]+$/) ? true : false;
             _This.signIn(inptUserName , 0 , checkName , 'User name hợp lệ' , 'User name chỉ bao gồm chữ cái!')
         };
         
@@ -638,15 +664,41 @@ const bookStore = {
         login.onclick = function() {
             if (checkName == true && checkPass == true && checkRepass == true && checkEmail == true) {
                 alert('Chúc Mừng Bạn Đã Đăng Ký Thành Công!');
+                formSignIn.classList.add('hiden');
+                overlayForm.classList.add('hiden');
+                formSignIn.classList.remove('active');
+                overlayForm.classList.remove('active');
                 _This.isLogged = true;
+                formUser.querySelector('.sign-in').classList.add('hiden');
+                changeAvataElement.classList.remove('hiden');
+                overlayForm.classList.remove('hiden');
+                infoUser.querySelector('.name').innerHTML = inptUserName.value;
             }else {
                 alert('Đăng Nhập Thất Bại! Vui lòng Nhập Đủ Thông Tin!');
             }
-        }
+        };
 
+        //Xử lý đổi avata
+        fileUpImg.onchange = function() {
+            avataUser.src = URL.createObjectURL(fileUpImg.files[0]);
+        };
+        
+        btnSave.onclick = function(){
+            _This.changeAvata();
+            changeAvataElement.classList.add('hiden');
+            overlayForm.classList.add('hiden');
+        };
 
-        
-        
+        //Khi đổi ảnh ở phần nav bar
+        infoUser.onclick = function() {
+            changeAvataElement.classList.remove('hiden');
+            overlayForm.classList.remove('hiden');
+        };
+
+        //Khi sign out
+        signOut.onclick = function() {
+            location.reload();
+        };
 
     },
 

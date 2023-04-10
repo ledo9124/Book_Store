@@ -172,6 +172,13 @@ body {
     align-items: center;
 }
 
+.user img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 .form-user:hover .user {
     background-color: var(--light);
 }
@@ -184,7 +191,7 @@ body {
     border-radius: 16px;
     flex-direction: column;
     background-color: var(--white);
-    z-index: 1;
+    z-index: 5;
     box-shadow: -1px 5px 5px #ccc;
     cursor: default;
     overflow: hidden;
@@ -218,23 +225,18 @@ body {
 
 .info-user .user::before {
     position: absolute;
-    content: '';
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    content: 'Sửa';
+    color: #f6f6f6;
     height: 40px;
     width: 40px;
     border-radius: 50%;
     background-image: linear-gradient(to top , rgba(0 ,0 ,0, .7) 40%, transparent 0);
-    z-index: 1;
-}
-
-.info-user .user::after {
-    position: absolute;
-    content: 'Sửa';
+    z-index: 4;
     font-size: 11px;
     font-weight: bold;
-    color: var(--white);
-    top: 59%;
-    left: 45px;
-    z-index: 1;
 }
 
 .nav-bar li:nth-child(2) {
@@ -249,6 +251,72 @@ body {
 }
 
 /*End header */
+
+/* img avata */
+
+.change-avata {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    z-index: 4;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    background-color: var(--white);
+    border-radius: 16px;
+    animation: toSignIn linear 1 .5s forwards;
+}
+
+.change-avata img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #fdfdfd;
+}
+
+.custom-file-upload {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.custom-file-upload:hover {
+    background-color: #ddd;
+}
+
+.custom-file-upload i {
+    margin-right: 5px;
+}
+
+.change-avata button {
+    margin-top: 12px;
+    width: 100px;
+    height: 36px;
+    border: none;
+    background-color: #12c2e9;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transform: translateY(0);
+    transition: .3s;
+}
+
+.change-avata button:hover {
+    background-color: #317ff5;
+    box-shadow: 0 5px 5px #317ff5;
+    transform: translateY(-6px);
+}
+
+/* End img avata */
 
 
 /* slideshow */
